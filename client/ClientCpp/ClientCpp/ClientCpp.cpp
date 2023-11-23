@@ -30,4 +30,15 @@ int main()
         WSACleanup();
         return -1;
     }
+
+    std::string message = "";
+    std::cout << "Put your message here: ";
+    std::cin >> message;
+    std::cout << '\n';
+    send(clientSocket, message.c_str(), static_cast<int>(strlen(message.c_str())), 0);
+
+    closesocket(clientSocket);
+    WSACleanup();
+
+    return 0;
 }
